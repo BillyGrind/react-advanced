@@ -1,6 +1,7 @@
 import './App.css';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Timer from './Timer'
+import Video from './Video.mp4'
 
 function App() {
 
@@ -26,12 +27,32 @@ function App() {
 
   }, [])
 
+
+  const ref = useRef([]);
+  const addToRef = el => {
+    if (el && !ref.current.includes(el)) {
+      ref.current.push(el);
+    }
+
+  }
+  useEffect(() => {
+ 
+  }, []);
+
   return (
     <div className="App">
       <h1> Billy was Here</h1>
       <button onClick={toggleFunc}> Set Timer</button>
-      <h2>{toggle &&<Timer /> }</h2>
-
+      <h2>{toggle && <Timer />}</h2>
+      <video ref={addToRef} width="750" height="500" autoPlay controls muted>
+        <source src={Video} type='video/mp4' />
+      </video>
+      <video ref={addToRef} width="750" height="500" autoPlay controls muted>
+        <source src={Video} type='video/mp4' />
+      </video>
+      <video ref={addToRef} width="750" height="500" autoPlay controls muted>
+        <source src={Video} type='video/mp4' />
+      </video>
       {dataImg && <img src={dataImg}
         alt="cat img"
         style={{ width: "500px" }}
