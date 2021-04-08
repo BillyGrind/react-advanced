@@ -4,7 +4,7 @@ import Chevron from './Chevron.png'
 
 export default function Accordeon() {
 
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState(false);
     const [heightEl, setHeightEl] = useState();
 
     const toggleState = () => {
